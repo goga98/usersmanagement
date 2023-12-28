@@ -19,7 +19,7 @@ namespace UserManagement.API.Controllers
         {
             _userService = userService;
         }
-
+        [AllowAnonymous]
         [HttpPost("AddUser")]
         public async Task<IActionResult> AddUser(UserDto model)
         {

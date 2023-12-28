@@ -11,6 +11,7 @@ using Microsoft.OpenApi.Models;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
 using UserManagement.Shared.Models;
+using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,7 @@ builder.Services.AddDbContext<UserManagementDbContext>(options =>
 });
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
@@ -75,6 +77,7 @@ builder.Services.AddSwaggerGen(option =>
         }
     });
 });
+
 var app = builder.Build();
 app.UseRouting();
 app.UseAuthentication();

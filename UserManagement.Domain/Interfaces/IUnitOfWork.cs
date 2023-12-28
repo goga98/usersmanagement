@@ -13,5 +13,6 @@ namespace UserManagement.Domain.Interfaces
         Task BeginTransactionAsync();
         Task CommitTransactionAsync();
         Task RollbackTransactionAsync();
+        IUserRepository UserRepository { get; }
     }
 }

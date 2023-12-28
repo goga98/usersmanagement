@@ -20,7 +20,7 @@ namespace UserManagement.Infrastructure.Repositories
         {
         }
 
-        // Add specific methods related to user management
+
         public async Task<ApplicationUser> GetUserByEmailAsync(string email)
         {
             return await _context.Users.SingleOrDefaultAsync(u => u.Email == email);

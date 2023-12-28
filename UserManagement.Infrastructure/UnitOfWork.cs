@@ -17,13 +17,16 @@ namespace UserManagement.Infrastructure
         private readonly UserManagementDbContext _dbContext;
         private IDbContextTransaction _transaction;
 
+        public IUserRepository UserRepository { get; set; }
+
         #endregion
 
         #region Constructors
 
-        public UnitOfWork(UserManagementDbContext dbContext)
+        public UnitOfWork(UserManagementDbContext dbContext, IUserRepository userRepository)
         {
             _dbContext = dbContext;
+            UserRepository = userRepository;
         }
 
         #endregion

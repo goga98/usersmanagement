@@ -16,9 +16,10 @@ namespace UserManagement.API.Controllers
     {
         private readonly IUserService _userService;
         private readonly UserManager<ApplicationUser> _userManager;
-        public AuthController(UserManager<ApplicationUser> userManager)
+        public AuthController(UserManager<ApplicationUser> userManager, IUserService userService)
         {
             _userManager = userManager;
+            _userService = userService;
         }
         [AllowAnonymous]
         [HttpPost, Route("login")]
